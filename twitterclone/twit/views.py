@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from twit import models
 from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
 from twit.models import Tweet, Followers, Followings
 
 
@@ -120,6 +121,38 @@ def timeline(request):
     follos = Followings.objects.get(userid=request.user)
     followings = follos.following.all()
     tweet = Tweet.objects.filter(author__in= followings).order_by('-created')
+
     context = {'tweets': tweet}
 
     return render(request, 'timeline.html', context)
+
+
+
+@login_required
+def details(request, id):
+    tweet = Tweet.objects.filter(id = id)
+    twet = Tweet.objects.get(id = id)
+    is_liked = False
+    if twet.like.filter(id=request.user.id).exists():
+        is_liked = True
+
+    context = {'tweet' : tweet,
+               'is_liked': is_liked,
+               'total': twet.total()}
+    return render (request, 'details.html', context)
+
+
+
+
+@login_required
+def liketweets(request):
+    twet = get_object_or_404(Tweet, id=request.POST.get('tweetid'))
+    is_liked = False
+    if twet.like.filter(id=request.user.id).exists():
+        twet.like.remove(request.user)
+        is_liked = False
+    else:
+        twet.like.add(request.user)
+        is_liked = True
+    url = ('/tweet/'+str(twet.id))
+    return redirect(url)

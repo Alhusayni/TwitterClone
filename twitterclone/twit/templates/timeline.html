@@ -4,9 +4,9 @@ TimeLine
 {% endblock %}
 {% block content %}
 
-            {% for t in tweets %}
+             {% for t in tweets %}
                  <h1>{{ t.tweet }}</h1>
-                 <p>Tweeted by {{ t.author.username }} on {{ t.created }}</p>
+                 <p>Tweeted by {{ t.author.username }} <a href="{% url 'details' id=t.id %}"> Details</a> </p>
 
              {% endfor %}
 

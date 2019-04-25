@@ -17,17 +17,19 @@ from django.contrib import admin
 from django.urls import path
 from twit.views import home
 
-from twit.views import login_view, register_view, logout_view, profile, follow, unfollow,timeline
+from twit.views import login_view, register_view, logout_view, profile, follow, unfollow,timeline,details,liketweets
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name = 'home'),
-    path('accounts/login/', login_view, name= 'login'),
-    path('accounts/register/', register_view, name= 'signup'),
-    path('accounts/logout/', logout_view, name = 'logout'),
-    path('profile/', profile, name ='profile'),
-    path('profile/<int:pk>/', profile, name ='profile_pk'),
-    path('follow/<int:pk>/', follow, name ='follow'),
-    path('unfollow/<int:pk>/', unfollow, name ='unfollow'),
-    path('timeline/', timeline , name ='timeline')
+    path('', home, name='home'),
+    path('accounts/login/', login_view, name='login'),
+    path('accounts/register/', register_view, name='signup'),
+    path('accounts/logout/', logout_view, name='logout'),
+    path('profile/', profile, name='profile'),
+    path('profile/<int:pk>/', profile, name='profile_pk'),
+    path('follow/<int:pk>/', follow, name='follow'),
+    path('unfollow/<int:pk>/', unfollow, name='unfollow'),
+    path('timeline/', timeline , name ='timeline'),
+    path('tweet/<int:id>/', details, name='details'),
+    path('like/', liketweets, name='liketweet')
 ]

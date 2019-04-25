@@ -5,9 +5,14 @@ class Tweet(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     tweet = models.CharField(max_length=280)
     created = models.DateTimeField(auto_now_add=True)
-    like = models.IntegerField(default=0)
+    like = models.ManyToManyField(User, related_name= 'likes', blank=True)
+    #image = models.ImageField(upload_to='tweets_image')
     def __str__(self):
         return self.tweet
+
+    def total(self):
+        return self.like.count()
+
 
 
 class Followers(models.Model):
