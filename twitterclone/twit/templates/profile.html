@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}
+Profile Page
+{% endblock %}
+{% block content %}
+
+
+    <h1>Profile: </h1>
+    <p>Username: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+
+    {% for t in tweet %}
+        <h3>{{ t.tweet }}</h3>
+        <p>Tweeted by {{ t.author.username }} on {{ t.created }}</p>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+SignUp Page
+{% endblock %}
+{% block content %}
+
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" />
+    </form>
+
+
+    <h2>Already user ? <a href="{% url 'login' %}">sign in</a> </h2>
+
+
+
+{% endblock %}
