@@ -11,13 +11,13 @@ class Tweet(models.Model):
 
 
 class Followers(models.Model):
-    userid = models.ForeignKey(User, on_delete=models.CASCADE,related_name='userid')
+    userid = models.ForeignKey(User, related_name='userid', on_delete=models.PROTECT)
     follower = models.ManyToManyField(User, related_name='followers' , symmetrical=False)
 
 
 
 class Followings(models.Model):
-    userid = models.ForeignKey(User, on_delete=models.CASCADE)
+    userid = models.ForeignKey(User, on_delete=models.PROTECT)
     following = models.ManyToManyField(User, related_name='following', symmetrical=False)
     @classmethod
     def make_follow(cls, userid, the_follower):
@@ -25,7 +25,7 @@ class Followings(models.Model):
             userid=userid
 
         )
-        follower.userid.add(the_follower)
+        follower.following.add(the_follower)
 
     @classmethod
     def unfollow(cls, userid, the_follower):
@@ -33,4 +33,4 @@ class Followings(models.Model):
             userid=userid
 
         )
-        follower.userid.remove(the_follower)
+        follower.following.remove(the_follower)

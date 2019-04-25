@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from twit.views import home
 
-from twit.views import login_view, register_view, logout_view, profile, follow, unfollow
+from twit.views import login_view, register_view, logout_view, profile, follow, unfollow,timeline
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +28,6 @@ urlpatterns = [
     path('profile/', profile, name ='profile'),
     path('profile/<int:pk>/', profile, name ='profile_pk'),
     path('follow/<int:pk>/', follow, name ='follow'),
-    path('unfollow/<int:pk>/', unfollow, name ='unfollow')
+    path('unfollow/<int:pk>/', unfollow, name ='unfollow'),
+    path('timeline/', timeline , name ='timeline')
 ]

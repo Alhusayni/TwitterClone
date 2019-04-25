@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}
+TimeLine
+{% endblock %}
+{% block content %}
+
+            {% for t in tweets %}
+                 <h1>{{ t.tweet }}</h1>
+                 <p>Tweeted by {{ t.author.username }} on {{ t.created }}</p>
+
+             {% endfor %}
+
+
+
+
+{% endblock %}

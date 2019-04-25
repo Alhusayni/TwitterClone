@@ -17,10 +17,15 @@ Profile Page
 </div>
 
 <div class="col-sm-4">
+    {% if following %}
     <h1>List of Followings: </h1>
-    {% for f in following %}
-        <h3><a href="{% url 'profile_pk' pk=f.pk %}">{{ f.username }}</h3>
-    {% endfor %}
+         {% for f in following %}
+             <h3><a href="{% url 'profile_pk' pk=f.pk %}">{{ f.username }}</h3>
+             <a href="{% url 'unfollow' pk=f.pk %}">
+             <button type="button" class="btn btn-outline-danger">Unfollow</button>
+             </a>
+         {% endfor %}
+    {% endif %}
 
 </div>
 

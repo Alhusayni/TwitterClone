@@ -22,9 +22,12 @@ def home(request):
         form = AddTweetForm()
         tweets = Tweet.objects.all().order_by('-created')
         users = User.objects.exclude(username = request.user)
+        follos = Followings.objects.get(userid=request.user)
+        followings = follos.following.all()
         context = {'form': form,
                    'tweet': tweets,
-                   'user': users}
+                   'user': users,
+                   'following': followings}
 
         return render(request, "home.html", context)
 
@@ -51,7 +54,6 @@ def profile(request, pk = None):
     else:
         user = request.user
     tweet = Tweet.objects.filter(author=user).order_by('-created')
-
     follos = Followings.objects.get(userid=user)
     followings = follos.following.all()
     context = {'user': user,
@@ -101,13 +103,23 @@ def logout_view(request):
     logout(request)
     return redirect('/')
 
+@login_required
 def follow(request, pk):
     nuser = User.objects.get(pk=pk)
     Followings.make_follow(request.user, nuser)
     return redirect('/')
 
-
+@login_required
 def unfollow(request, pk):
     nuser = User.objects.get(pk=pk)
     Followings.unfollow(request.user, nuser)
     return redirect('/')
+
+@login_required
+def timeline(request):
+    follos = Followings.objects.get(userid=request.user)
+    followings = follos.following.all()
+    tweet = Tweet.objects.filter(author__in= followings).order_by('-created')
+    context = {'tweets': tweet}
+
+    return render(request, 'timeline.html', context)
