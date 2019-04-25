@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from twit import models
 from django.contrib.auth.models import User
-from twit.models import Tweet
+from twit.models import Tweet, Followers, Followings
 
 
 from django.contrib.auth import (
@@ -21,7 +21,7 @@ def home(request):
     if request.method == "GET":
         form = AddTweetForm()
         tweets = Tweet.objects.all().order_by('-created')
-        users = User.objects.all()
+        users = User.objects.exclude(username = request.user)
         context = {'form': form,
                    'tweet': tweets,
                    'user': users}
@@ -50,8 +50,13 @@ def profile(request, pk = None):
         return render(request, 'profile.html', context)
     else:
         user = request.user
-    tweet = Tweet.objects.filter(author=user)
-    context = {'user': user, 'tweet': tweet}
+    tweet = Tweet.objects.filter(author=user).order_by('-created')
+
+    follos = Followings.objects.get(userid=user)
+    followings = follos.following.all()
+    context = {'user': user,
+               'tweet': tweet,
+               'following': followings }
     return render(request, 'profile.html', context)
 
 def login_view(request):
@@ -94,4 +99,15 @@ def register_view(request):
 
 def logout_view(request):
     logout(request)
+    return redirect('/')
+
+def follow(request, pk):
+    nuser = User.objects.get(pk=pk)
+    Followings.make_follow(request.user, nuser)
+    return redirect('/')
+
+
+def unfollow(request, pk):
+    nuser = User.objects.get(pk=pk)
+    Followings.unfollow(request.user, nuser)
     return redirect('/')

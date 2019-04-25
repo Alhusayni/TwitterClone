@@ -8,9 +8,21 @@ Profile Page
     <h1>Profile: </h1>
     <p>Username: {{ user.username }}</p>
     <p>Email: {{ user.email }}</p>
-
+<div class="row">
+<div class="col-sm-8">
     {% for t in tweet %}
         <h3>{{ t.tweet }}</h3>
         <p>Tweeted by {{ t.author.username }} on {{ t.created }}</p>
     {% endfor %}
+</div>
+
+<div class="col-sm-4">
+    <h1>List of Followings: </h1>
+    {% for f in following %}
+        <h3><a href="{% url 'profile_pk' pk=f.pk %}">{{ f.username }}</h3>
+    {% endfor %}
+
+</div>
+
+</div>
 {% endblock %}

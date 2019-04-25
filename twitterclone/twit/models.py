@@ -19,4 +19,18 @@ class Followers(models.Model):
 class Followings(models.Model):
     userid = models.ForeignKey(User, on_delete=models.CASCADE)
     following = models.ManyToManyField(User, related_name='following', symmetrical=False)
+    @classmethod
+    def make_follow(cls, userid, the_follower):
+        follower, created= cls.objects.get_or_create(
+            userid=userid
 
+        )
+        follower.userid.add(the_follower)
+
+    @classmethod
+    def unfollow(cls, userid, the_follower):
+        follower, created = cls.objects.get_or_create(
+            userid=userid
+
+        )
+        follower.userid.remove(the_follower)
