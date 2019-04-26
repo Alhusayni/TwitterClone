@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from twit.views import home
-
+from django.conf import settings
+from django.conf.urls.static import static
 from twit.views import login_view, register_view, logout_view, profile, follow, unfollow,timeline,details,liketweets
 
 urlpatterns = [
@@ -33,3 +34,7 @@ urlpatterns = [
     path('tweet/<int:id>/', details, name='details'),
     path('like/', liketweets, name='liketweet')
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

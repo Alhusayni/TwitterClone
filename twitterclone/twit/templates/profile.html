@@ -12,7 +12,10 @@ Profile Page
 <div class="col-sm-8">
     {% for t in tweet %}
         <h3>{{ t.tweet }}</h3>
-        <p>Tweeted by {{ t.author.username }} on {{ t.created }}</p>
+        {% if t.image %}
+            <img src="{{ t.image.url }}" class="img-responsive"/>
+        {% endif %}
+        <p>Your tweet, Tweeted on {{ t.created }}</p>
     {% endfor %}
 </div>
 

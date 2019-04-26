@@ -7,8 +7,9 @@ Details of tweet
     {% for t in tweet %}
         <h1>{{ t.tweet }}</h1>
         <p>Tweeted by {{ t.author.username }} on {{ t.created }}</p>
+        <img src="{{ t.image.url }}" class="img-responsive"/>
 
-          <h3>  {{ total }} like {{ total|pluralize }} </h3>
+          <h3>  {{ total }} like{{ total|pluralize }} </h3>
         <form action="{% url 'liketweet' %}" method="post">
             {% csrf_token %}
             {% if is_liked %}

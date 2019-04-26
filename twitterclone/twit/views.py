@@ -31,14 +31,15 @@ def home(request):
                    'following': followings}
 
         return render(request, "home.html", context)
-
-
-
-    form= AddTweetForm(request.POST or None)
+    form = AddTweetForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         newtweet = models.Tweet()
         newtweet.author = request.user
         newtweet.tweet = form.cleaned_data['tweet']
+        try:
+            newtweet.image = request.FILES['image']
+        except:
+            newtweet.image = None
         newtweet.save()
     context = {'form': form}
 

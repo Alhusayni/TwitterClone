@@ -57,8 +57,5 @@ class UserRegisterForm(forms.ModelForm):
 
 class AddTweetForm(forms.Form):
     tweet = forms.CharField()
-
-    #class Meta:
-     #   model = Tweet
-      #  fields = ('tweet',)
+    image = forms.FileField(required=False)
 

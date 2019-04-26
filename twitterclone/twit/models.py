@@ -6,7 +6,7 @@ class Tweet(models.Model):
     tweet = models.CharField(max_length=280)
     created = models.DateTimeField(auto_now_add=True)
     like = models.ManyToManyField(User, related_name= 'likes', blank=True)
-    #image = models.ImageField(upload_to='tweets_image')
+    image = models.FileField(null=True, blank=True)
     def __str__(self):
         return self.tweet
 
