@@ -4,9 +4,9 @@ TimeLine
 {% endblock %}
 {% block content %}
 
-             {% for t in tweets %}
+             {% for t in tweet %}
                  <h1>{{ t.tweet }}</h1>
-               {% if t.image %}
+                 {% if t.image %}
                     {% if '.mp4' in t.image.name %}
                         <video width="320" height="240" controls>
                             <source src="{{ t.image.url }}" type="video/mp4">

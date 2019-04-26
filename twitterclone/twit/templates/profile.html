@@ -8,26 +8,49 @@ Profile Page
     <h1>Profile: </h1>
     <p>Username: {{ user.username }}</p>
     <p>Email: {{ user.email }}</p>
+
+
 <div class="row">
 <div class="col-sm-8">
     {% for t in tweet %}
         <h3>{{ t.tweet }}</h3>
         {% if t.image %}
-            <img src="{{ t.image.url }}" class="img-responsive"/>
+            {% if '.mp4' in t.image.name %}
+                <video width="320" height="240" controls>
+                    <source src="{{ t.image.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            {% elif '.mp3' in t.image.name %}
+                <audio controls>
+                    <source src="{{ t.image.url }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+
+            {% else %}
+                    <img src="{{ t.image.url }}" class="img-responsive"/>
+            {% endif %}
         {% endif %}
-        <p>Your tweet, Tweeted on {{ t.created }}</p>
+        <p>Your tweet, Tweeted on {{ t.created }} <a href="{% url 'details' id=t.id %}"> Details</a></p>
+        <form action="{% url 'deletetweet' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" name="tweetid" value="{{ t.id }}" class="btn btn-danger">Delete</button>
+
+        </form>
     {% endfor %}
 </div>
 
 <div class="col-sm-4">
     {% if following %}
-    <h1>List of Followings: </h1>
+    <h1>You have {{ follow.total }} Following{{ follow.total|pluralize }}: </h1>
          {% for f in following %}
              <h3><a href="{% url 'profile_pk' pk=f.pk %}">{{ f.username }}</h3>
              <a href="{% url 'unfollow' pk=f.pk %}">
              <button type="button" class="btn btn-outline-danger">Unfollow</button>
              </a>
          {% endfor %}
+    {% elif follow.total == 0 %}
+        <h1>{{ follow.total }} Followings:  </h1>
+        <h3> You don't have any followings !!!</h3>
     {% endif %}
 
 </div>

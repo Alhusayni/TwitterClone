@@ -6,8 +6,24 @@ Details of tweet
 
     {% for t in tweet %}
         <h1>{{ t.tweet }}</h1>
-        <p>Tweeted by {{ t.author.username }} on {{ t.created }}</p>
-        <img src="{{ t.image.url }}" class="img-responsive"/>
+         {% if t.image %}
+                    {% if '.mp4' in t.image.name %}
+                        <video width="320" height="240" controls>
+                            <source src="{{ t.image.url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    {% elif '.mp3' in t.image.name %}
+                        <audio controls>
+                            <source src="{{ t.image.url }}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    {% else %}
+                    <img src="{{ t.image.url }}" class="img-responsive"/>
+                    {% endif %}
+                {% endif %}
+        <p>Tweeted by <a href="{% url 'profile_pk' pk=t.author.id %}"> {{ t.author.username }}</a> on {{ t.created }}</p>
+
 
           <h3>  {{ total }} like{{ total|pluralize }} </h3>
         <form action="{% url 'liketweet' %}" method="post">

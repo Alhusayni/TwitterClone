@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 from twit import models
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
-from twit.models import Tweet, Followers, Followings
+from twit.models import Tweet, Followings
 
 
 from django.contrib.auth import (
@@ -37,7 +37,7 @@ def home(request):
         newtweet.author = request.user
         newtweet.tweet = form.cleaned_data['tweet']
         try:
-            newtweet.image = request.FILES['image']
+            newtweet.image = request.FILES['upload_media']
         except:
             newtweet.image = None
         newtweet.save()
@@ -60,7 +60,8 @@ def profile(request, pk = None):
     followings = follos.following.all()
     context = {'user': user,
                'tweet': tweet,
-               'following': followings }
+               'following': followings,
+               'follow': follos}
     return render(request, 'profile.html', context)
 
 def login_view(request):
@@ -157,3 +158,21 @@ def liketweets(request):
         is_liked = True
     url = ('/tweet/'+str(twet.id))
     return redirect(url)
+
+
+@login_required
+def likepage(request):
+    twet = Tweet.objects.filter(like=request.user).order_by('-created')
+
+    context = {'tweet': twet}
+
+    return render(request, 'likedtweet.html', context)
+
+
+#@login_required
+#def editprofile(request):
+
+
+def deletetweet(request):
+    get_object_or_404(Tweet, id=request.POST.get('tweetid')).delete()
+    return redirect('/')

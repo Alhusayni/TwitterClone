@@ -15,12 +15,6 @@ class Tweet(models.Model):
 
 
 
-class Followers(models.Model):
-    userid = models.ForeignKey(User, related_name='userid', on_delete=models.PROTECT)
-    follower = models.ManyToManyField(User, related_name='followers' , symmetrical=False)
-
-
-
 class Followings(models.Model):
     userid = models.ForeignKey(User, on_delete=models.PROTECT)
     following = models.ManyToManyField(User, related_name='following', symmetrical=False)
@@ -39,3 +33,7 @@ class Followings(models.Model):
 
         )
         follower.following.remove(the_follower)
+
+
+    def total(self):
+        return self.following.count()

@@ -57,5 +57,6 @@ class UserRegisterForm(forms.ModelForm):
 
 class AddTweetForm(forms.Form):
     tweet = forms.CharField()
-    image = forms.FileField(required=False)
+    upload_media = forms.FileField(required=False)
+
 
