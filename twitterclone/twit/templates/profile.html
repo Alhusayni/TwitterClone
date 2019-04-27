@@ -2,58 +2,98 @@
 {% block title %}
 Profile Page
 {% endblock %}
+{% block pagename %}
+    Profile:
+{% endblock %}
+{% block profile %}
+    <ol class="breadcrumb d-flex justify-content-center">
+            <li class="breadcrumb-item">
+              <a>Username: {{ user.username }}</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a>Email: {{ user.email }}</a>
+            </li>
+    </ol>
+{% endblock %}
+
 {% block content %}
 
 
-    <h1>Profile: </h1>
-    <p>Username: {{ user.username }}</p>
-    <p>Email: {{ user.email }}</p>
+  <section class="blog-wrapper sect-pt4" id="blog">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% for t in tweet %}
+          <div class="post-box">
+            <div class="post-thumb">
+              <!--/ Tweet Media /-->
+              {% if t.image %}
+                  {% if '.mp4' in t.image.name %}
+                     <video width="320" height="240" controls class="img-fluid">
+                       <source src="{{ t.image.url }}" type="video/mp4">
+                         Your browser does not support the video tag.
+                      </video>
+                  {% elif '.mp3' in t.image.name %}
+                    <audio controls>
+                      <source src="{{ t.image.url }}" type="audio/mpeg">
+                       Your browser does not support the audio element.
+                    </audio>
+
+                  {% else %}
+                    <img src="{{ t.image.url }}" class="img-fluid" alt="">
+                  {% endif %}
+              {% endif %}
+            </div>
+            <div class="post-meta">
+              <!--/ Tweet text /-->
+              <h1 class="article-title">{{ t.tweet }}</h1>
+              <ul>
+                <li>
+                  <!--/ Tweet author /-->
+                  <span class="ion-ios-person"></span>
+                  <a>Tweeted on {{ t.created }}</a>
+                </li>
+                <li>
+                  <!--/ Tweet Details /-->
+                  <span class="ion-pricetag"></span>
+                  <a href="{% url 'details' id=t.id %}">Details</a>
+                </li>
+              </ul>
+            </div>
+            <form action="{% url 'deletetweet' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" name="tweetid" value="{{ t.id }}" class="btn btn-danger">Delete</button>
+
+            </form>
+          </div>
+          {% endfor %}
+          </div>
 
 
-<div class="row">
-<div class="col-sm-8">
-    {% for t in tweet %}
-        <h3>{{ t.tweet }}</h3>
-        {% if t.image %}
-            {% if '.mp4' in t.image.name %}
-                <video width="320" height="240" controls>
-                    <source src="{{ t.image.url }}" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            {% elif '.mp3' in t.image.name %}
-                <audio controls>
-                    <source src="{{ t.image.url }}" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+        <div class="col-md-4">
+        {% if following %}
+          <div class="widget-sidebar">
 
-            {% else %}
-                    <img src="{{ t.image.url }}" class="img-responsive"/>
-            {% endif %}
-        {% endif %}
-        <p>Your tweet, Tweeted on {{ t.created }} <a href="{% url 'details' id=t.id %}"> Details</a></p>
-        <form action="{% url 'deletetweet' %}" method="post">
-            {% csrf_token %}
-            <button type="submit" name="tweetid" value="{{ t.id }}" class="btn btn-danger">Delete</button>
+            <h4 class="sidebar-title"> {{ follow.total }} Following{{ follow.total|pluralize }}: </h4>
+            <div class="sidebar-content">
+              {% for f in following %}
+                <h5> <a href="{% url 'profile_pk' pk=f.pk %}">{{ f.username }}</a></h5>
+                 <a href="{% url 'unfollow' pk=f.pk %}">
+                    <button type="button" class="btn btn-outline-danger">Unfollow</button>
+                 </a>
+              {% endfor %}
 
-        </form>
-    {% endfor %}
-</div>
+          {% elif follow.total == 0 %}
+            <div class="widget-sidebar">
+              <h4 class="sidebar-title">{{ follow.total }} Followings: </h4>
+              <div class="sidebar-content"> <h3> You don't have any followings !!!</h3>
 
-<div class="col-sm-4">
-    {% if following %}
-    <h1>You have {{ follow.total }} Following{{ follow.total|pluralize }}: </h1>
-         {% for f in following %}
-             <h3><a href="{% url 'profile_pk' pk=f.pk %}">{{ f.username }}</h3>
-             <a href="{% url 'unfollow' pk=f.pk %}">
-             <button type="button" class="btn btn-outline-danger">Unfollow</button>
-             </a>
-         {% endfor %}
-    {% elif follow.total == 0 %}
-        <h1>{{ follow.total }} Followings:  </h1>
-        <h3> You don't have any followings !!!</h3>
-    {% endif %}
+          {% endif %}
+            </div>
+          </div>
 
-</div>
-
-</div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}

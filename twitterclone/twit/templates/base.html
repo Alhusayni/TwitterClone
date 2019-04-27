@@ -1,46 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title %}</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+    {% load static %}
+  <link href="{% static 'style/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'style/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="{% static 'style/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'style/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'style/lib/animate/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'style/lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'style/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'style/lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'style/css/style.css' %}" rel="stylesheet">
+
+</head>
 
 
-	<title>{% block title %}{% endblock title %}</title>
-  </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="#">Student Demo</a>
+  <!--/ Nav Star /-->
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll" href="#page-top">Fake Tweet</a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="{% url 'profile' %}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="{% url 'timeline' %}">TimeLine</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="{% url 'likepage' %}">Likes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="{% url 'logout' %}">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--/ Nav End /-->
 
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'home' %}">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-    </li>
-      <li class="nav-item">
-      <a class="nav-link" href="{% url 'timeline' %}">TimeLine</a>
-    </li>
-      <li class="nav-item">
-      <a  class="nav-link" href="{% url 'logout' %}">Logout</a>
-      </li>
-      <li class="nav-item">
-      <a  class="nav-link" href="{% url 'likepage' %}">Likes</a>
-      </li>
-  </ul>
-</nav>
-
-
-<div class="container">
- {% block content %}{% endblock content %}
-</div>
+    <!--/ Intro Skew Star /-->
+  <div class="intro intro-single route bg-image" style="background-image: url({% static 'style/img/welcomecenterpic.jpg' %})">
+    <div class="overlay-mf"></div>
+    <div class="intro-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <h2 class="intro-title mb-4">{% block pagename %}{% endblock %}</h2>
+            {% block profile %}{% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Intro Skew End /-->
 
 
 
+
+
+
+{% block content %}{% endblock content %}
+
+
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+
+
+  <script src="{% static 'style/lib/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'style/lib/jquery/jquery-migrate.min.js' %}"></script>
+  <script src="{% static 'style/lib/popper/popper.min.js' %}"></script>
+  <script src="{% static 'style/lib/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'style/lib/easing/easing.min.js' %}"></script>
+  <script src="{% static 'style/lib/counterup/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'style/lib/counterup/jquery.counterup.js' %}"></script>
+  <script src="{% static 'style/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'style/lib/lightbox/js/lightbox.min.js' %}"></script>
+  <script src="{% static 'style/lib/typed/typed.min.js' %}"></script>
+  <script src="{% static 'style/contactform/contactform.js' %}"></script>
+  <script src="{% static 'style/js/main.js' %}"></script>
 
 </body>
 </html>

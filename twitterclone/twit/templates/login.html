@@ -1,17 +1,33 @@
-{% extends "base.html" %}
+{% extends "RLbase.html" %}
 {% block title %}
 Login Page
 {% endblock %}
+
+{% block navL %}
+#Login
+{% endblock %}
+{% block navR %}
+{% url 'signup' %}
+{% endblock %}
+
+{% block LorRB %}
+Login
+{% endblock %}
+{% block LorR %}
+LOGIN
+{% endblock %}
+
 {% block content %}
 
-    <h1>Login</h1>
+
+    <br>
     <form method="POST">
         {% csrf_token %}
         {{ form }}
-        <input type="submit" />
+        <input class="btn btn-outline-success" type="submit" />
     </form>
 
-<h3>Not a user ? <a href="{% url 'signup' %}">signup now</a></h3>
+
 
 
 

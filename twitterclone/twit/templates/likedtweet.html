@@ -1,32 +1,59 @@
 {% extends "base.html" %}
 {% block title %}
-TimeLine
+My Liked Tweets
+{% endblock %}
+{% block pagename %}
+    Liked tweets
 {% endblock %}
 {% block content %}
 
-             {% for t in tweet %}
-                 <h1>{{ t.tweet }}</h1>
-                 {% if t.image %}
-                    {% if '.mp4' in t.image.name %}
-                        <video width="320" height="240" controls>
-                            <source src="{{ t.image.url }}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    {% elif '.mp3' in t.image.name %}
-                        <audio controls>
-                            <source src="{{ t.image.url }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
+  <section class="blog-wrapper sect-pt4" id="blog">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% for t in tweet %}
+          <div class="post-box">
+            <div class="post-thumb">
+              <!--/ Tweet Media /-->
+              {% if t.image %}
+                  {% if '.mp4' in t.image.name %}
+                     <video width="320" height="240" controls class="img-fluid">
+                       <source src="{{ t.image.url }}" type="video/mp4">
+                         Your browser does not support the video tag.
+                      </video>
+                  {% elif '.mp3' in t.image.name %}
+                    <audio controls >
+                      <source src="{{ t.image.url }}" type="audio/mpeg">
+                       Your browser does not support the audio element.
+                    </audio>
 
-                    {% else %}
-                    <img src="{{ t.image.url }}" class="img-responsive"/>
-                    {% endif %}
-                {% endif %}
-                 <p>Tweeted by {{ t.author.username }} <a href="{% url 'details' id=t.id %}"> Details</a> </p>
+                  {% else %}
+                    <img src="{{ t.image.url }}" class="img-fluid" alt="">
+                  {% endif %}
+              {% endif %}
+            </div>
+            <div class="post-meta">
+              <!--/ Tweet text /-->
+              <h1 class="article-title">{{ t.tweet }}</h1>
+              <ul>
+                <li>
+                  <!--/ Tweet author /-->
+                  <span class="ion-ios-person"></span>
+                  <a>{{ t.author.username }}</a>
+                </li>
+                <li>
+                  <!--/ Tweet Details /-->
+                  <span class="ion-pricetag"></span>
+                  <a href="{% url 'details' id=t.id %}">Details</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          {% endfor %}
+          </div>
 
-             {% endfor %}
-
-
+    </div>
+  </section>
 
 
 {% endblock %}
