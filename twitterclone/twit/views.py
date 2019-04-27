@@ -27,8 +27,11 @@ def home(request):
         form = AddTweetForm()
         tweets = Tweet.objects.all().order_by('-created')
         users = User.objects.exclude(username = request.user)
-        follos = Followings.objects.get(userid=request.user)
-        followings = follos.following.all()
+        try:
+            follos = Followings.objects.get(userid=request.user)
+            followings = follos.following.all()
+        except:
+            followings = None
         context = {'form': form,
                    'tweet': tweets,
                    'user': users,
@@ -63,8 +66,12 @@ def profile(request, pk = None):
     else:
         user = request.user
     tweet = Tweet.objects.filter(author=user).order_by('-created')
-    follos = Followings.objects.get(userid=user)
-    followings = follos.following.all()
+    try:
+        follos = Followings.objects.get(userid=request.user)
+        followings = follos.following.all()
+    except:
+        followings = None
+        follos = None
     context = {'user': user,
                'tweet': tweet,
                'following': followings,
@@ -137,9 +144,12 @@ def unfollow(request, pk):
 # @login_required to not allowing unregistered user to do this
 @login_required
 def timeline(request):
-    follos = Followings.objects.get(userid=request.user)
-    followings = follos.following.all()
-    tweet = Tweet.objects.filter(author__in= followings).order_by('-created')
+    try:
+        follos = Followings.objects.get(userid=request.user)
+        followings = follos.following.all()
+        tweet = Tweet.objects.filter(author__in= followings).order_by('-created')
+    except:
+        tweet = None
 
     context = {'tweets': tweet}
 
