@@ -10,7 +10,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/twitterclone/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="39" column="11" lean-forward="true" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/twit/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="354">
@@ -26,6 +35,46 @@
                 <element signature="e#5489#5821#0" />
                 <element signature="e#6012#6166#0" />
                 <element signature="e#6383#6473#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/twit/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/twitterclone/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/twit/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#106#494#0" />
+                <element signature="e#534#1147#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/twit/templates/RLbase.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,19 +107,20 @@
         <option value="$PROJECT_DIR$/twit/templates/details.html" />
         <option value="$PROJECT_DIR$/twit/templates/home.html" />
         <option value="$PROJECT_DIR$/twit/templates/base.html" />
-        <option value="$PROJECT_DIR$/twit/templates/RLbase.html" />
         <option value="$PROJECT_DIR$/twit/models.py" />
-        <option value="$PROJECT_DIR$/twit/forms.py" />
         <option value="$PROJECT_DIR$/twitterclone/urls.py" />
-        <option value="$PROJECT_DIR$/twitterclone/settings.py" />
         <option value="$PROJECT_DIR$/twit/admin.py" />
         <option value="$PROJECT_DIR$/twit/views.py" />
+        <option value="$PROJECT_DIR$/twitterclone/settings.py" />
+        <option value="$PROJECT_DIR$/twit/forms.py" />
+        <option value="$PROJECT_DIR$/static/style/css/style.css" />
+        <option value="$PROJECT_DIR$/twit/templates/RLbase.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="974" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="1012" />
+    <option name="width" value="915" />
     <option name="height" value="1057" />
   </component>
   <component name="ProjectView">
@@ -88,12 +138,31 @@
             <path>
               <item name="twitterclone" type="b2602c69:ProjectViewProjectNode" />
               <item name="twitterclone" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="twitterclone" type="b2602c69:ProjectViewProjectNode" />
+              <item name="twitterclone" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="twitterclone" type="b2602c69:ProjectViewProjectNode" />
+              <item name="twitterclone" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="twitterclone" type="b2602c69:ProjectViewProjectNode" />
+              <item name="twitterclone" type="462c0819:PsiDirectoryNode" />
               <item name="twit" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="twitterclone" type="b2602c69:ProjectViewProjectNode" />
               <item name="twitterclone" type="462c0819:PsiDirectoryNode" />
-              <item name="twitterclone" type="462c0819:PsiDirectoryNode" />
+              <item name="twit" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -170,13 +239,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94446000" />
+    <option name="totallyTimeSpent" value="98439000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1057" extended-state="0" />
+    <frame x="1012" y="0" width="915" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24726477" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2643275" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -227,9 +296,6 @@
           <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/twitterclone/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/twit/migrations/0005_tweet_image.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -325,36 +391,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/twit/templates/RLbase.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="92" column="36" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/twit/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-            <element signature="e#193#914#0" />
-            <element signature="e#962#1754#0" />
-            <element signature="e#1794#1870#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/twit/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/twit/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -384,13 +420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/twitterclone/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="128" column="27" selection-start-line="128" selection-start-column="27" selection-end-line="128" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/twit/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
@@ -406,6 +435,151 @@
             <element signature="e#5489#5821#0" />
             <element signature="e#6012#6166#0" />
             <element signature="e#6383#6473#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twit/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#106#494#0" />
+            <element signature="e#534#1147#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twitterclone/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twitterclone/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="39" column="11" lean-forward="true" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twit/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/style/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#304#354#0" />
+            <element signature="e#379#400#0" />
+            <element signature="e#404#461#0" />
+            <element signature="e#471#553#0" />
+            <element signature="e#560#585#0" />
+            <element signature="e#596#617#0" />
+            <element signature="e#628#649#0" />
+            <element signature="e#665#686#0" />
+            <element signature="e#750#804#0" />
+            <element signature="e#835#871#0" />
+            <element signature="e#884#948#0" />
+            <element signature="e#961#1023#0" />
+            <element signature="e#1033#1108#0" />
+            <element signature="e#1120#1251#0" />
+            <element signature="e#1265#1297#0" />
+            <element signature="e#1311#1419#0" />
+            <element signature="e#1433#1477#0" />
+            <element signature="e#1494#1546#0" />
+            <element signature="e#1560#1612#0" />
+            <element signature="e#1644#1666#0" />
+            <element signature="e#1678#1702#0" />
+            <element signature="e#1714#1737#0" />
+            <element signature="e#1769#1831#0" />
+            <element signature="e#1865#1891#0" />
+            <element signature="e#1902#1974#0" />
+            <element signature="e#1988#2009#0" />
+            <element signature="e#2020#2100#0" />
+            <element signature="e#2139#2165#0" />
+            <element signature="e#2179#2223#0" />
+            <element signature="e#2244#2361#0" />
+            <element signature="e#2397#2422#0" />
+            <element signature="e#2441#2633#0" />
+            <element signature="e#2673#2697#0" />
+            <element signature="e#2714#2742#0" />
+            <element signature="e#2765#2947#0" />
+            <element signature="e#2976#3086#0" />
+            <element signature="e#3261#3323#0" />
+            <element signature="e#3335#3356#0" />
+            <element signature="e#3373#3416#0" />
+            <element signature="e#3462#3652#0" />
+            <element signature="e#3709#3754#0" />
+            <element signature="e#3786#3814#0" />
+            <element signature="e#3851#4028#0" />
+            <element signature="e#4071#4103#0" />
+            <element signature="e#4147#4194#0" />
+            <element signature="e#4235#4277#0" />
+            <element signature="e#4298#4588#0" />
+            <element signature="e#4629#4895#0" />
+            <element signature="e#4912#4951#0" />
+            <element signature="e#4981#5106#0" />
+            <element signature="e#5126#5439#0" />
+            <element signature="e#5441#5642#0" />
+            <element signature="e#5644#5837#0" />
+            <element signature="e#5951#6075#0" />
+            <element signature="e#6101#6155#0" />
+            <element signature="e#6225#6292#0" />
+            <element signature="e#6362#6429#0" />
+            <element signature="e#6513#6655#0" />
+            <element signature="e#6737#6758#0" />
+            <element signature="e#6854#6872#0" />
+            <element signature="e#7265#7283#0" />
+            <element signature="e#7325#7354#0" />
+            <element signature="e#7395#7413#0" />
+            <element signature="e#7580#7598#0" />
+            <element signature="e#7624#7733#0" />
+            <element signature="e#7769#7790#0" />
+            <element signature="e#7833#7865#0" />
+            <element signature="e#7907#7928#0" />
+            <element signature="e#8099#8120#0" />
+            <element signature="e#8160#8181#0" />
+            <element signature="e#8228#8260#0" />
+            <element signature="e#8286#8345#0" />
+            <element signature="e#8490#8617#0" />
+            <element signature="e#8644#8690#0" />
+            <element signature="e#8732#8790#0" />
+            <element signature="e#8838#8915#0" />
+            <element signature="e#8964#8996#0" />
+            <element signature="e#9044#9069#0" />
+            <element signature="e#9117#9134#0" />
+            <element signature="e#9157#9362#0" />
+            <element signature="e#9433#9606#0" />
+            <element signature="e#9658#9792#0" />
+            <element signature="e#9844#9918#0" />
+            <element signature="e#9970#10106#0" />
+            <element signature="e#10216#10273#0" />
+            <element signature="e#10297#10344#0" />
+            <element signature="e#10367#10515#0" />
+            <element signature="e#10537#10594#0" />
+            <element signature="e#10619#10663#0" />
+            <element signature="e#10691#10711#0" />
+            <element signature="e#10727#10747#0" />
+            <element signature="e#10778#10801#0" />
+            <element signature="e#10830#10881#0" />
+            <element signature="e#10909#10963#0" />
+            <element signature="e#11015#11036#0" />
+            <element signature="e#11088#11109#0" />
+            <element signature="e#11139#11157#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twit/templates/RLbase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

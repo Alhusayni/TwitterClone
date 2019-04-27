@@ -59,7 +59,7 @@ class UserRegisterForm(forms.ModelForm):
 
 # add tweet form to render it in the templates
 class AddTweetForm(forms.Form):
-    tweet = forms.CharField()
+    tweet = forms.CharField(widget=forms.Textarea)
     upload_media = forms.FileField(required=False)
 
 
