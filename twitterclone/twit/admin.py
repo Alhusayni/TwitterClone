@@ -3,6 +3,6 @@ from django.contrib import admin
 from twit.models import Tweet
 from twit.models import Followings
 
-# Register your models here.
+# Register the models to the admin page.
 admin.site.register(Tweet)
 admin.site.register(Followings)

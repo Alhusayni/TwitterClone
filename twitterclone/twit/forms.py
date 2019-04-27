@@ -8,7 +8,7 @@ from django.contrib.auth import (
 
 User = get_user_model()
 
-
+# Login form to render it in the templates
 class UserLoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
@@ -27,7 +27,7 @@ class UserLoginForm(forms.Form):
                 raise forms.ValidationError('This user is not active')
         return super(UserLoginForm, self).clean(*args, **kwargs)
 
-
+# Register form to render it in the templates
 class UserRegisterForm(forms.ModelForm):
     email = forms.EmailField(label='Email address')
     email2 = forms.EmailField(label='Confirm Email')
@@ -57,7 +57,7 @@ class UserRegisterForm(forms.ModelForm):
         return super(UserRegisterForm, self).clean(*args, **kwargs)
 
 
-
+# add tweet form to render it in the templates
 class AddTweetForm(forms.Form):
     tweet = forms.CharField()
     upload_media = forms.FileField(required=False)

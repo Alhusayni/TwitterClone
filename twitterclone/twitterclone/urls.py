@@ -20,6 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from twit.views import login_view, register_view, logout_view, profile, follow, unfollow,timeline,details,liketweets,likepage,deletetweet
 
+# Routes
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
@@ -35,9 +36,9 @@ urlpatterns = [
     path('like/', liketweets, name='liketweet'),
     path('liketweet/', likepage, name = 'likepage'),
     path('removetweet/', deletetweet, name= 'deletetweet')
-    #path('profile/edit/', editprofile, name ='editprofile')
+
 ]
 
-
+# Handling the saving media
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

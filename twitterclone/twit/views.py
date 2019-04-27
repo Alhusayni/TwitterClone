@@ -17,6 +17,10 @@ from django.contrib.auth import (
 
 from .forms import UserLoginForm, UserRegisterForm , AddTweetForm
 
+
+# To render the home page, If it's GET request show the main home page,
+# If it's POST "user tweet" show them Tweeted post and redirect them to Home Page again
+# @login_required to not allowing unregistered user to visit this page
 @login_required
 def home(request):
     if request.method == "GET":
@@ -46,7 +50,10 @@ def home(request):
     return render(request, "Tweeted.html", context )
 
 
-
+# To render the profile page,
+# if the profile is the owner of the account show them "His tweet, and His following, and able to delete his tweets"
+# if the profile for any other user, show him only his information
+# @login_required to not allowing unregistered user to visit this page
 @login_required
 def profile(request, pk = None):
     if pk:
@@ -64,6 +71,7 @@ def profile(request, pk = None):
                'follow': follos}
     return render(request, 'profile.html', context)
 
+# To render the login Page
 def login_view(request):
     next = request.GET.get('next')
     form = UserLoginForm(request.POST or None)
@@ -81,7 +89,7 @@ def login_view(request):
     }
     return render(request, "login.html", context)
 
-
+# To render the register page
 def register_view(request):
     next = request.GET.get('next')
     form = UserRegisterForm(request.POST or None)
@@ -102,22 +110,31 @@ def register_view(request):
     return render(request, "signup.html", context)
 
 
+# To logout from the website
 def logout_view(request):
     logout(request)
     return redirect('/')
 
+
+# To allow the user to follow other users in the website
+# @login_required to not allowing unregistered user to do this
 @login_required
 def follow(request, pk):
     nuser = User.objects.get(pk=pk)
     Followings.make_follow(request.user, nuser)
     return redirect('/')
 
+# To allow the user to unfollow users that he is already followed them
+# @login_required to not allowing unregistered user to do this
 @login_required
 def unfollow(request, pk):
     nuser = User.objects.get(pk=pk)
     Followings.unfollow(request.user, nuser)
     return redirect('/')
 
+
+# To render a page that show the tweets of people that the user followed them only
+# @login_required to not allowing unregistered user to do this
 @login_required
 def timeline(request):
     follos = Followings.objects.get(userid=request.user)
@@ -129,7 +146,8 @@ def timeline(request):
     return render(request, 'timeline.html', context)
 
 
-
+# To render a page that show the details of tweets
+# @login_required to not allowing unregistered user to visit this page
 @login_required
 def details(request, id):
     tweet = Tweet.objects.filter(id = id)
@@ -144,8 +162,8 @@ def details(request, id):
     return render (request, 'details.html', context)
 
 
-
-
+# To let the user to like or unlike the tweet in the details page
+# @login_required to not allowing unregistered user to do this
 @login_required
 def liketweets(request):
     twet = get_object_or_404(Tweet, id=request.POST.get('tweetid'))
@@ -160,6 +178,8 @@ def liketweets(request):
     return redirect(url)
 
 
+# To render a page that shows only the tweets that the user liked it only
+# @login_required to not allowing unregistered user to visit this page
 @login_required
 def likepage(request):
     twet = Tweet.objects.filter(like=request.user).order_by('-created')
@@ -169,10 +189,9 @@ def likepage(request):
     return render(request, 'likedtweet.html', context)
 
 
-#@login_required
-#def editprofile(request):
-
-
+# To let the user delete his tweets in his profile page and only the owner user able to delete his tweet
+# @login_required to not allowing unregistered user to do this
+@login_required
 def deletetweet(request):
     get_object_or_404(Tweet, id=request.POST.get('tweetid')).delete()
     return redirect('/')
