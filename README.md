@@ -6,7 +6,7 @@
 
 ##### Fake_Tweet ("Twitter Clone") Using Django Framework.
 
-- You can register for new account or you can login using on of the existed account [Below](##Acounts:) .
+- You can register for new account or you can login using on of the existed account [below](#acounts) .
 
 - You can add new tweet and also share a video "mp4" or audio "mp3 or pictures " You can use Emojis BTW ".
 
@@ -42,6 +42,7 @@ Go to your working directory and run this command:
 ```
 docker-compose up
 ```
+------------
 
 ### Second Run it locally:
 
@@ -69,7 +70,9 @@ You can access it directly here:
 157.230.60.25
 
 
-##Acounts:
+## Acounts
+
+
 1: 
 user: 
 
