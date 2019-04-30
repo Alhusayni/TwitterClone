@@ -1,10 +1,12 @@
 # cinf301-spr19-final-project
 
+
+
 # What Is My Project About:
 
 ##### Fake_Tweet ("Twitter Clone") Using Django Framework.
 
-- You can register for new account or you can login using on of the existed account below.
+- You can register for new account or you can login using on of the existed account [Below](##Acounts:) .
 
 - You can add new tweet and also share a video "mp4" or audio "mp3 or pictures " You can use Emojis BTW ".
 
@@ -67,7 +69,7 @@ You can access it directly here:
 157.230.60.25
 
 
-## Acounts:
+##Acounts:
 1: 
 user: 
 
