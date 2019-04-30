@@ -2,19 +2,19 @@
 
 # What Is My Project About:
 
-Fake_Tweet ("Twitter Clone") Using Django Framework.
+#####Fake_Tweet ("Twitter Clone") Using Django Framework.
 
-You can register for new account or you can login using on of the existed account below.
+- You can register for new account or you can login using on of the existed account below.
 
-You can add new tweet and also share a video "mp4" or audio "mp3 or pictures " You can use Emojis BTW ".
+- You can add new tweet and also share a video "mp4" or audio "mp3 or pictures " You can use Emojis BTW ".
 
-You can also follow any account in the website, and you can see their tweets only on the Timeline Page.
+- You can also follow any account in the website, and you can see their tweets only on the Timeline Page.
 
-You can Like any tweet if you see the detailes of it and see more information, and you can see the tweets you've liked on Likes page.
+- You can Like any tweet if you see the detailes of it and see more information, and you can see the tweets you've liked on Likes page.
 
-You can see your information and all of your tweets in your profile page, and you will be able to delete them and you can unfollow any user you've followed.
+- You can see your information and all of your tweets in your profile page, and you will be able to delete them and you can unfollow any user you've followed.
 
-If you go to any profile of any user you will see his information only and you will not be able to see all of their tweets.
+- If you go to any profile of any user you will see his information only and you will not be able to see all of their tweets.
 
 
 ## Authors
