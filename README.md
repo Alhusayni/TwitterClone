@@ -19,7 +19,7 @@
 - If you go to any profile of any user you will see his information only and you will not be able to see all of their tweets.
 
 
-## Authors
+## Author
 
 * **Abdulrahman Alhusayni**  - [alhusayni](https://github.com/Alhusayni)
 
@@ -67,7 +67,7 @@ You can access it directly here:
 
 
 
-157.230.60.25
+  [**Cick Here** ](http://157.230.60.25)
 
 
 ## Acounts
