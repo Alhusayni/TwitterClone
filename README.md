@@ -6,7 +6,7 @@
 
 ##### Fake_Tweet ("Twitter Clone") Using Django Framework.
 
-- You can register for new account or you can login using on of the existed account [below](#acounts) .
+- You can register for new account or you can login using one of the existed account [below](#acounts) .
 
 - You can add new tweet and also share a video "mp4" or audio "mp3 or pictures " You can use Emojis BTW ".
 
