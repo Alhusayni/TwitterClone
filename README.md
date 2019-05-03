@@ -12,7 +12,7 @@
 
 - You can also follow any account in the website, and you can see their tweets only on the Timeline Page.
 
-- You can Like any tweet if you see the detailes of it and see more information, and you can see the tweets you've liked on Likes page.
+- You can Like any tweet if you see the details of it and see more information, and you can see the tweets you've liked on Likes page.
 
 - You can see your information and all of your tweets in your profile page, and you will be able to delete them and you can unfollow any user you've followed.
 
@@ -74,11 +74,26 @@ You can access it directly here:
 
 
 1: 
-user: 
+user: mussaed
 
 pass: 123
 
 2:
-user: 
+user: stetson
+
+pass: 123
+
+3:
+user: Thefirst
+
+pass: 123321
+
+4:
+user: webdev
+
+pass: 123
+
+5:
+user: admin
 
 pass: 123
