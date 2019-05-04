@@ -60,6 +60,7 @@ Profile Page
                 </li>
               </ul>
             </div>
+          <br>
             <form action="{% url 'deletetweet' %}" method="post">
               {% csrf_token %}
               <button type="submit" name="tweetid" value="{{ t.id }}" class="btn btn-danger">Delete</button>

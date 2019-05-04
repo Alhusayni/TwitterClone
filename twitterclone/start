@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+
+python /app/manage.py collectstatic --noinput
+python /app/manage.py migrate --noinput
+/usr/local/bin/gunicorn twitterclone.wsgi --bind 0.0.0.0:8000 --chdir=/app \
+  --name "Twitter Clone" \
+  --timeout=60 \
+  --access-logfile=/var/log/app/gunicorn-access \
+  --capture-output \
+  --error-logfile=/var/log/app/gunicorn-error \
+  --log-level=debug \
+  --log-file=-
