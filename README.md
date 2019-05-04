@@ -1,4 +1,4 @@
-# cinf301-spr19-final-project
+# cinf301-spr19-final-project (Docker working)
 
 
 
@@ -50,9 +50,7 @@ docker-compose up
 
 
 ```
-*Python3
-*Django
-*Pillow
+pip install -r requirements.txt
 ```
 
 Go to your working and run this command using the commandline:
@@ -97,3 +95,5 @@ pass: 123
 user: admin
 
 pass: 123
+
+##### Or you can create new account
