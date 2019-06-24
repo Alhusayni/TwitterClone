@@ -91,9 +91,6 @@ user: webdev
 
 pass: 123
 
-5:
-user: admin
 
-pass: 123
 
 ##### Or you can create new account
